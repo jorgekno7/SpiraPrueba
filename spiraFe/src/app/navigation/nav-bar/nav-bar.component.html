@@ -1,0 +1,27 @@
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand">Spira</a>
+      <img src="../assets/spira.png" width="20">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      
+        <li *ngIf="isAdmin" class="nav-item" [class.active]="activeIndex==0" (click)=activeTab(0)>
+            <a class="nav-link" routerLink="/main/usuarios" ><span class="fa fa-home"></span> Usuarios </a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item" [class.active]="activeIndex==1" (click)=activeTab(1)>
+            <a class="nav-link" routerLink="/main/cursos" ><span class="fa fa-check"></span> Cursos</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item" [class.active]="activeIndex==2" (click)=activeTab(2)>
+            <a class="nav-link" routerLink="/main/asignacion" ><span class="fa fa-archive"></span> Asignacion</a>
+        </li>
+        <li *ngIf="!isAdmin" class="nav-item" [class.active]="activeIndex==3" (click)=activeTab(3)>
+          <a class="nav-link" routerLink="/main/registro" ><span class="fa fa-archive"></span> Mis Cursos</a>
+      </li>
+      </ul>
+    </div>
+    <button class="btn bg-light" type="button"(click)='out()'>
+      Salir
+    </button>
+  </nav>

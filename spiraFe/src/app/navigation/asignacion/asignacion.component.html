@@ -1,0 +1,64 @@
+<div class="content-fluid mx-4">
+    <div class="row my-4">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <div *ngIf="message" class="alert alert-primary" role="alert">
+                {{message}}                   
+                </div>
+            </div>
+            <form (submit)='guardarFormulario()'>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">ID Alumno</label>
+                    <select [(ngModel)]='asignacion.fk_u_id' required name='fk_u_id' type="number" class="form-control"
+                        autocomplete="off" id="exampleFormControlInput1" placeholder="1">
+                        <option *ngFor="let us of listaUsuarios" value="{{us.id}}">{{us.u_nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">ID Curso</label>
+                    <select [(ngModel)]='asignacion.fk_c_id' required name='fk_c_id' type="number"
+                        class="form-control" autocomplete="off" id="exampleFormControlInput1" placeholder="1">
+                        <option *ngFor="let cur of listaCursos" value="{{cur.id}}">{{cur.c_nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary float-right">Guardar</button>
+                    <button type="button" *ngIf=' asignacion.id' (click)="cancelEdit()"
+                        class="btn btn-default float-right">Cancelar</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="col-sm-6">
+
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id Alumno</th>
+                        <th scope="col">Alumno</th>
+                        <th scope="col">Id Curso</th>
+                        <th scope="col">Nombre Curso</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of listaAsignacion">
+                        <td>{{a.fk_u_id}}</td>
+                        <td>{{a.u_nombre}}</td>
+                        <td>{{a.fk_c_id}}</td>
+                        <td>{{a.c_nombre}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" (click)='editar(a)'>Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" (click)='eliminar(a)'>Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>

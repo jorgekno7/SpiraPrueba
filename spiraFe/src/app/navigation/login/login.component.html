@@ -1,0 +1,32 @@
+<div class="sidenav">
+  <div class="login-main-text">
+     <h2> Login</h2>
+     <img src="../assets/spira.png" width="100">
+  </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+     <div class="login-form">
+        <form (submit)='login()'>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Correo</label>
+            <input [(ngModel)]='ingreso.correo' required name='correo' type="text" class="form-control"
+                autocomplete="off" id="exampleFormControlInput1" placeholder="correo@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Password</label>
+          <input [(ngModel)]='ingreso.pass' required name='pass' type="password"
+              class="form-control" autocomplete="off" id="exampleFormControlInput1" placeholder="pas***">
+        </div>
+           <button type="submit" class="btn btn-black" >Login</button>
+        </form>
+     </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
